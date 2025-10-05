@@ -6,5 +6,18 @@ use Illuminate\Database\Eloquent\Model;
 
 class Alumnos extends Model
 {
-    public $timestamps = false;
-}
+    protected $table = 'alumnos';
+    protected $fillable = [
+        'nombre',
+        'correo',
+        'codigo',
+        'fecha_nacimiento',
+        'sexo',
+        'carrera'
+    ];
+
+    protected $cast =[
+        'fecha-nacimiento' => 'date',
+    ];
+}   
+
