@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('correo')->unique();
             $table->string('codigo')->unique();
             $table->date('fecha_nacimiento');
-            $table->enum('sexo', ['M', 'F']);
+            $table->string('sexo')->checkIn(['M', 'F']);
             $table->string('carrera');
             $table->timestamps();
         });
@@ -29,4 +29,4 @@ return new class extends Migration
     {
         Schema::dropIfExists('alumnos');
     }
-};
+};  
