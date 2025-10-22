@@ -5,16 +5,26 @@ use App\Http\Controllers\Controller;
 use App\Models\Alumno;
 use App\Models\Alumnos;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class AlumnoController extends Controller
 {
+    
+
+public function resetIds()
+{
+    // Si usas SQLite
+    DB::statement('DELETE FROM sqlite_sequence WHERE name="alumnos"');
+    return redirect()->back()->with('success', 'Los IDs de alumnos se reiniciaron correctamente.');
+}
+
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $alumnos = Alumnos::all();
-        return view('Alumnos_Tareas.index-tarea', compact('alumnos'));
+    $alumnos = Alumnos::all();
+    return view('alumno.index', compact('alumnos'));
     }
 
     /**
@@ -22,7 +32,7 @@ class AlumnoController extends Controller
      */
     public function create()
     {
-        return view('Alumnos_Tareas.create-tarea');
+    return view('alumno.create');
     }
 
     /**
@@ -48,7 +58,7 @@ class AlumnoController extends Controller
         $alumnos->carrera = $request->input('carrera');
         $alumnos->save();
         
-        return redirect()->route('alumnos.index')->with('success', 'Alumno creado correctamente');
+    return redirect()->route('alumno.index')->with('success', 'Alumno creado correctamente');
     }
 
     /**
@@ -56,7 +66,7 @@ class AlumnoController extends Controller
      */
     public function show(Alumnos $alumno)
     {
-        return view('Alumnos_Tareas.show-tarea', compact('alumno'));
+    return view('alumno.show', compact('alumno'));
     }
 
     /**
@@ -64,7 +74,7 @@ class AlumnoController extends Controller
      */
     public function edit(Alumnos $alumno)
     {
-        return view('Alumnos_Tareas.edit-tarea', compact('alumno'));
+    return view('alumno.edit', compact('alumno'));
     }
 
     /**
@@ -81,7 +91,7 @@ class AlumnoController extends Controller
         $alumno->carrera = $request->input('carrera');
         $alumno->save();
         
-        return redirect()->route('alumnos.index')->with('success', 'Alumno actualizado correctamente');
+    return redirect()->route('alumno.index')->with('success', 'Alumno actualizado correctamente');
     }
 
     /**
@@ -90,7 +100,7 @@ class AlumnoController extends Controller
     public function destroy(Alumnos $alumno)
     {
         $alumno->delete();
-        return redirect()->route('alumnos.index')->with('success', 'Alumno eliminado correctamente');
+    return redirect()->route('alumno.index')->with('success', 'Alumno eliminado correctamente');
     }
 
 }

@@ -26,10 +26,9 @@
 
             <div class="collapse navbar-collapse" id="menu">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="{{ route('alumnos.index') }}">Inicio</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{ route('alumnos.create') }}">Crear Alumno</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Carreras</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Contacto</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ route('alumno.index') }}">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ route('alumno.create') }}">Crear Alumno</a></li>
+
                 </ul>
             </div>
         </div>
@@ -41,7 +40,7 @@
 
         <div class="card shadow-sm border-0">
             <div class="card-body">
-                <form action="{{ route('alumnos.update', $alumno->id) }}" method="POST" class="row g-3">
+                <form action="{{ route('alumno.update', $alumno->id) }}" method="POST" class="row g-3">
                     @csrf
                     @method('PUT')
 
@@ -119,7 +118,7 @@
 
                     <div class="col-12 text-center mt-4">
                         <button type="submit" class="btn btn-success px-4">💾 Guardar Cambios</button>
-                        <a href="{{ route('alumnos.index') }}" class="btn btn-secondary px-4 ms-2">⬅ Volver</a>
+                        <a href="{{ route('alumno.index') }}" class="btn btn-secondary px-4 ms-2">⬅ Volver</a>
                     </div>
                 </form>
             </div>

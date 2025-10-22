@@ -26,8 +26,8 @@
 
             <div class="collapse navbar-collapse" id="menu">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link active" href="{{ route('alumnos.index') }}">Inicio</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{ route('alumnos.create') }}">Crear Alumno</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="{{ route('alumno.index') }}">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ route('alumno.create') }}">Crear Alumno</a></li>
                 </ul>
             </div>
         </div>
@@ -38,7 +38,7 @@
         <h1 class="mb-4 text-center">Listado de Alumnos</h1>
 
         <div class="mb-3 text-end">
-            <a href="{{ route('alumnos.create') }}" class="btn btn-success">➕ Nuevo Alumno</a>
+            <a href="{{ route('alumno.create') }}" class="btn btn-success">➕ Nuevo Alumno</a>
         </div>
 
         <div class="table-responsive">
@@ -66,8 +66,8 @@
                         <td>{{ $alumno->sexo }}</td>
                         <td>{{ $alumno->carrera }}</td>
                         <td>
-                            <a href="{{ route('alumnos.edit', $alumno->id) }}" class="btn btn-sm btn-warning">Editar</a>
-                            <form action="{{ route('alumnos.destroy', $alumno->id) }}" method="POST" class="d-inline">
+                            <a href="{{ route('alumno.edit', $alumno->id) }}" class="btn btn-sm btn-warning">Editar</a>
+                            <form action="{{ route('alumno.destroy', $alumno->id) }}" method="POST" class="d-inline">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('¿Eliminar este alumno?')">Eliminar</button>

@@ -2,10 +2,13 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Alumnos extends Model
 {
+    use HasFactory;
+
     protected $table = 'alumnos';
     protected $fillable = [
         'nombre',
@@ -16,8 +19,8 @@ class Alumnos extends Model
         'carrera'
     ];
 
-    protected $cast =[
-        'fecha-nacimiento' => 'date',
+    protected $casts = [
+        'fecha_nacimiento' => 'date',
     ];
-}   
+}
 

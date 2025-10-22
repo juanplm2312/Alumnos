@@ -15,9 +15,20 @@ Route::view('dashboard', 'dashboard')
 
 ////////////
 
-    Route::resource('alumnos', AlumnoController::class);
+    
+    Route::resource('alumnos', AlumnoController::class)->names([
+        'index' => 'alumno.index',
+        'create' => 'alumno.create',
+        'store' => 'alumno.store',
+        'show' => 'alumno.show',
+        'edit' => 'alumno.edit',
+        'update' => 'alumno.update',
+        'destroy' => 'alumno.destroy',
+    ]);
 
 ////////////
+
+Route::get('/alumnos/reset-ids', [AlumnoController::class, 'resetIds'])->name('alumno.resetIds');
 
 
 Route::middleware(['auth'])->group(function () {
